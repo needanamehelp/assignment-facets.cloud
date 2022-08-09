@@ -17,6 +17,7 @@ spec:
           image: hashicorp/http-echo
           args:
             - "-text=I am blue"
+            - "-listen=:8080"
 
 
 ---
@@ -30,7 +31,7 @@ spec:
     app: blue
   ports:
   - name: service0
-    targetPort: 5678
+    targetPort: 8080
     port: 8080
     protocol: TCP
   type: NodePort
@@ -45,8 +46,6 @@ metadata:
   annotations:
     ingress.kubernetes.io/rewrite-target: /
     kubernetes.io/ingress.class: nginx # Use the Nginx ingress.
-    #    nginx.ingress.kubernetes.io/canary: "true"
-    #nginx.ingress.kubernetes.io/canary-weight: "75"
     kubernetes.io/elb.port: '80'    
 spec:
   rules:
