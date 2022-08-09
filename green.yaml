@@ -43,13 +43,10 @@ metadata:
   name: example-ingress-green
   annotations:
     ingress.kubernetes.io/rewrite-target: /
-    kubernetes.io/ingress.class: nginx # Use the Nginx ingress.
+    kubernetes.io/ingress.class: nginx
     nginx.ingress.kubernetes.io/canary: "true"
     nginx.ingress.kubernetes.io/canary-weight: "25"
     kubernetes.io/elb.port: '80'
-
-
-    
 spec:
   rules:
   - http:
