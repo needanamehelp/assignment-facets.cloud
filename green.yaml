@@ -17,6 +17,7 @@ spec:
           image: hashicorp/http-echo
           args:
             - "-text=I am green"
+            - "-listen=:8081"
 
 
 ---
@@ -30,7 +31,7 @@ spec:
     app: green
   ports:
   - name: service1
-    targetPort: 5678
+    targetPort: 8081
     port: 8081
     protocol: TCP
   type: NodePort
